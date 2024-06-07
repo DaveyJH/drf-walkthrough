@@ -11,7 +11,7 @@ class Profile(models.Model):
     content = models.TextField(blank=True)
     image = models.ImageField(
         upload_to="images",
-        default="../react/default/default_profile_fgs4iu"
+        default="../default/default_profile_fgs4iu",
     )
 
     class Meta:

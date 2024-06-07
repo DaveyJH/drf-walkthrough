@@ -21,7 +21,7 @@ class ProfileList(APIView):
 
 class ProfileDetail(APIView):
     serializer_class = ProfileSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly,]
 
     def get_object(self, pk):
         try:
@@ -32,7 +32,6 @@ class ProfileDetail(APIView):
             raise Http404
 
     def get(self, request, pk):
-        print(type(request))
         profile = self.get_object(pk)
         serializer = ProfileSerializer(
             profile,
@@ -52,5 +51,5 @@ class ProfileDetail(APIView):
             return Response(serializer.data)
         return Response(
             serializer.errors,
-            status=status.HTTP_400_BAD_REQUESTS
+            status=status.HTTP_400_BAD_REQUEST
         )

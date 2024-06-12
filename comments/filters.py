@@ -17,3 +17,9 @@ class CommentFilter(FilterSet):
         field_name="post",
         choices=choices
     )
+
+    class Meta:
+        fields = [
+            "post",
+        ]
+        model = Comment

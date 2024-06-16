@@ -45,7 +45,7 @@ REST_FRAMEWORK = {
     "DATETIME_FORMAT": "%d %b %Y",
 }
 
-if not DEVELOPMENT:
+if not DEBUG:
     REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
         "rest_framework.renderers.JSONRenderer",
     ]

@@ -190,7 +190,10 @@ CLOUDINARY_STORAGE = {
 MEDIA_URL = "/react/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
-STATIC_URL = '/static/'
+STATIC_URL = '/react/static/'
+STATICFILES_STORAGE = (
+    "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

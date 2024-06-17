@@ -191,7 +191,7 @@ MEDIA_URL = "/react/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 STATIC_URL = '/react/static/'
-if 'DEV' in os.environ:
+if 'DEBUG' in os.environ:
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -8,7 +8,7 @@ from .serializers import PostSerializer
 from .filters import PostFilter
 
 
-class PostList(generics.ListAPIView):
+class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(

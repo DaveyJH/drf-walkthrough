@@ -103,10 +103,12 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    f"https://{HOST}",
     os.environ.get('CLIENT_ORIGIN') if 'CLIENT_ORIGIN' in os.environ
     else os.environ.get('CLIENT_ORIGIN_DEV')
 ]
 CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'drf_api.urls'
 

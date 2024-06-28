@@ -3,10 +3,11 @@ from django_filters.rest_framework import (
     FilterSet
 )
 from .models import Post
+from profiles.models import Profile
 
 
 class PostFilter(FilterSet):
-    profiles = [*Post.objects.all().order_by("owner")]
+    profiles = [*Profile.objects.all().order_by("owner")]
     profile_choices = [
         (prof.owner.id, prof.owner.username,)
         for prof in profiles

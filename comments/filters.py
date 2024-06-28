@@ -3,14 +3,15 @@ from django_filters.rest_framework import (
     FilterSet
 )
 from .models import Comment
+from posts.models import Post
 
 
 class CommentFilter(FilterSet):
-    comments = [*Comment.objects.all().order_by("owner")]
+    posts = [*Post.objects.all().order_by("owner")]
     choices = [(
-        comment.post.id,
-        comment.post.title,
-        ) for comment in comments
+        post.id,
+        post.title,
+        ) for post in posts
     ]
     post = ChoiceFilter(
         label="Post",

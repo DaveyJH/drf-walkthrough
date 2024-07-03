@@ -7,17 +7,19 @@ from posts.models import Post
 
 
 class CommentFilter(FilterSet):
-    posts = [*Post.objects.all().order_by("owner")]
-    choices = [(
-        post.id,
-        post.title,
-        ) for post in posts
-    ]
     post = ChoiceFilter(
         label="Post",
         field_name="post",
-        choices=choices
+        choices=[]
     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        posts = Post.objects.all().order_by("owner")
+        # Create choices dynamically
+        self.filters['post'].extra['choices'] = [
+            (post.id, post.title) for post in posts
+        ]
 
     class Meta:
         fields = [
